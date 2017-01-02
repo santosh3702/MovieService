@@ -16,11 +16,7 @@ public class MovieController {
 		return new ModelAndView("movie");
 	}
 	
-	
-	@RequestMapping(value = "/login")
-	public ModelAndView loginPageView() {
-		return new ModelAndView("login");
-	}
+
 	
 	@RequestMapping(value="/save",method = RequestMethod.POST)  
     public ModelAndView saveUserDetails(@ModelAttribute("loginCrediantials") LoginCrediantials loginCrediantials){  
