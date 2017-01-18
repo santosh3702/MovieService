@@ -1,0 +1,7 @@
+ create dataBase movieservice;
+use movieService
+ create table users (username varchar(200), password varchar(200));
+ insert into users values ("admin","admin");
+ select * from users;
+  select username, password from users where username = 'admin' ;
+ 
