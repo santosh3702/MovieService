@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.movieService.service.LoginService;
@@ -32,15 +33,15 @@ public class LoginController {
 		return loginResponce;
 	}
 	
-	@RequestMapping(value = "/delete", produces = MediaType.APPLICATION_JSON_VALUE ,consumes =  MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", produces = MediaType.APPLICATION_JSON_VALUE ,consumes =  MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.DELETE)
 	public DeleteResponce delete(@RequestBody DeleteRequest deleteRequest) {
 		DeleteResponce deleteResponce = null;
 		deleteResponce = loginService.delete(deleteRequest);
 		return deleteResponce;
 	}
 	
-	@RequestMapping(value = "/getAllUsers", produces = MediaType.APPLICATION_JSON_VALUE ,consumes =  MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
-	public List<GetAllUsersResonce> getAllUsers() {
+	@RequestMapping(value = "/getAllUsers", produces = MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+	public @ResponseBody List<GetAllUsersResonce> getAllUsers() {
 		List<GetAllUsersResonce> getAllUsersResonce = null;
 		getAllUsersResonce = loginService.getAllUsers();
 		return getAllUsersResonce;

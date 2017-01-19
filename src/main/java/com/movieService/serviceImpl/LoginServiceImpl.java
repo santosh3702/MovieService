@@ -60,8 +60,10 @@ public class LoginServiceImpl implements LoginService {
 		intList.add(deleteRequest.getUserName());
 		int result = jdbcTemplate.update(QueryConstant.UPDATE_TO_DEACTIVATE, intList.toArray());
 		if (result > 0) {
+			deleteResponce = new DeleteResponce();
 			deleteResponce.setStatus("DELETED");
 		} else {
+			deleteResponce = new DeleteResponce();
 			deleteResponce.setStatus("NOT DELETED");
 		}
 		return deleteResponce;
