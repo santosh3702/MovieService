@@ -27,14 +27,14 @@ public class LoginController {
 	private LoginService loginService;
 	
 	@RequestMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE ,consumes =  MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.POST)
-	public LoginResponce login(@RequestBody LoginRequest crediantials) {
+	public @ResponseBody LoginResponce login(@RequestBody LoginRequest crediantials) {
 		LoginResponce loginResponce = null;
 		loginResponce = loginService.login(crediantials);
 		return loginResponce;
 	}
 	
 	@RequestMapping(value = "/delete", produces = MediaType.APPLICATION_JSON_VALUE ,consumes =  MediaType.APPLICATION_JSON_VALUE ,method = RequestMethod.DELETE)
-	public DeleteResponce delete(@RequestBody DeleteRequest deleteRequest) {
+	public @ResponseBody DeleteResponce delete(@RequestBody DeleteRequest deleteRequest) {
 		DeleteResponce deleteResponce = null;
 		deleteResponce = loginService.delete(deleteRequest);
 		return deleteResponce;
